@@ -242,6 +242,7 @@ section::after {
   gap: 10px;
   width: min(100%, 150px);
   margin: 17px auto 0;
+  color: var(--luana-gold);
 }
 
 .highlight {
@@ -306,11 +307,11 @@ h1 {
 }
 
 .luana-ink {
-  color: var(--luana-ink);
+  color: var(--luana-ink) !important;
 }
 
 .luana-rose-deep {
-  color: var(--luana-rose-deep);
+  color: var(--luana-rose-deep) !important;
 }
 
 .lines {
@@ -318,6 +319,43 @@ h1 {
   height: 1px;
   background: var(--luana-gold);
   opacity: 0.62;
+}
+
+footer {
+  position: relative;
+  max-width: 650px;
+  margin: 56px auto 0;
+  padding: 24px 20px 66px;
+  text-align: center;
+}
+
+footer::before {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 66px;
+  height: 1px;
+  background: var(--luana-gold);
+  content: "";
+  transform: translateX(-50%);
+}
+
+footer h2 {
+  margin: 0;
+  color: var(--luana-rose);
+  font-family: "Lora", Georgia, serif;
+  font-size: clamp(28px, 5vw, 42px);
+  font-style: italic;
+  font-weight: 500;
+}
+
+footer p {
+  margin: 12px auto 0;
+  color: var(--luana-ink-soft);
+  font-family: "Lora", Georgia, serif;
+  font-size: 14px;
+  text-align: center;
+  line-height: 1.7;
 }
 
 @media (max-width: 570px) {
