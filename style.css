@@ -1,0 +1,365 @@
+:root {
+  --button-outline: rgba(0, 0, 0, 0.1);
+  --badge-outline: rgba(0, 0, 0, 0.05);
+  --opaque-button-border-intensity: -8;
+  --elevate-1: rgba(0, 0, 0, 0.03);
+  --elevate-2: rgba(0, 0, 0, 0.08);
+  --background: 0 0% 100%;
+  --foreground: 240 10% 3.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 240 10% 3.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 240 10% 3.9%;
+  --primary: 240 5.9% 10%;
+  --primary-foreground: 0 0% 98%;
+  --secondary: 240 4.8% 95.9%;
+  --secondary-foreground: 240 5.9% 10%;
+  --muted: 240 4.8% 95.9%;
+  --muted-foreground: 240 3.8% 46.1%;
+  --accent: 240 4.8% 95.9%;
+  --accent-foreground: 240 5.9% 10%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 240 5.9% 90%;
+  --input: 240 5.9% 90%;
+  --ring: 240 5.9% 10%;
+  --chart-1: 12 76% 61%;
+  --chart-2: 173 58% 39%;
+  --chart-3: 197 37% 24%;
+  --chart-4: 43 74% 66%;
+  --chart-5: 27 87% 67%;
+  --sidebar: 0 0% 98%;
+  --sidebar-foreground: 240 5.3% 26.1%;
+  --sidebar-primary: 240 5.9% 10%;
+  --sidebar-primary-foreground: 0 0% 98%;
+  --sidebar-accent: 240 4.8% 95.9%;
+  --sidebar-accent-foreground: 240 5.9% 10%;
+  --sidebar-border: 220 13% 91%;
+  --sidebar-ring: 240 5.9% 10%;
+  --font-sans: "Inter", sans-serif;
+  --font-serif: Georgia, serif;
+  --font-mono: Menlo, monospace;
+  --radius: 0.5rem;
+  --spacing: 0.25rem;
+  --luana-ink: #5d3a42;
+  --luana-ink-soft: #8a6269;
+  --luana-rose: #bb647b;
+  --luana-rose-deep: #8d3f59;
+  --luana-blush: #f9e6e7;
+  --luana-paper: #fff9f4;
+  --luana-gold: #b8894a;
+  --luana-gold-soft: #d7b67a;
+}
+
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+  display: block;
+  vertical-align: middle;
+}
+
+body {
+  width: min(100%, 1060px);
+  margin: 0 auto;
+  padding: 24px 18px 48px;
+
+  background:
+    radial-gradient(
+      circle at 13% 17%,
+      rgba(255, 255, 255, 0.72) 0 5%,
+      transparent 21%
+    ),
+    radial-gradient(
+      circle at 89% 45%,
+      rgba(224, 161, 177, 0.19) 0 2%,
+      transparent 23%
+    ),
+    linear-gradient(132deg, #f8e7e7 0%, #fbeeee 48%, #f5dfdf 100%);
+  color: var(--luana-ink);
+  font-family: "DM Sans", sans-serif;
+  isolation: isolate;
+}
+
+p,
+h1,
+h2 h3,
+h4 {
+  color: var(--luana-ink-soft);
+}
+
+.uppercase {
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 880px;
+  margin: 0 auto 10px;
+  color: var(--luana-rose-deep);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.logo {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: min(100%, 405px);
+  aspect-ratio: 1;
+  margin: 0 auto;
+  padding: 14px;
+  border: 1px solid rgba(184, 137, 74, 0.68);
+  border-radius: 50%;
+  background: rgba(255, 246, 241, 0.66);
+  box-shadow:
+    0 18px 38px rgba(104, 60, 69, 0.14),
+    0 0 0 7px rgba(255, 249, 244, 0.46);
+  animation: luana-float 7s ease-in-out infinite;
+}
+
+section:first-of-type {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 500px) minmax(0, 1fr);
+  align-items: center;
+  gap: 28px;
+  min-height: 600px;
+  padding: 44px 3vw 56px;
+  border: 1px solid rgba(184, 137, 74, 0.34);
+  background: rgba(255, 249, 244, 0.48);
+  box-shadow: 0 24px 55px rgba(132, 72, 84, 0.11);
+}
+
+section:first-of-type::before {
+  top: 13px;
+  left: 13px;
+  border-right: 0;
+  border-bottom: 0;
+}
+
+section:first-of-type::after {
+  right: 13px;
+  bottom: 13px;
+  border-top: 0;
+  border-left: 0;
+}
+
+section::before,
+section::after {
+  position: absolute;
+  width: 92px;
+  height: 92px;
+  border: 1px solid var(--luana-gold);
+  content: "";
+  opacity: 0.72;
+}
+
+.luana-branch {
+  position: absolute;
+  z-index: 0;
+  width: 230px;
+  height: 190px;
+  opacity: 0.84;
+  pointer-events: none;
+}
+
+.luana-branch path {
+  fill: none;
+  stroke: #79524c;
+  stroke-linecap: round;
+  stroke-width: 2;
+}
+
+.luana-branch ellipse {
+  fill: #e78da0;
+  stroke: #c56d82;
+  stroke-width: 1;
+}
+
+.luana-branch.left {
+  top: -16px;
+  left: -6px;
+  transform: rotate(-16deg);
+}
+
+.luana-branch.right {
+  right: -8px;
+  bottom: 4px;
+  transform: scaleX(-1) rotate(-7deg);
+}
+
+.luana-kicker {
+  margin: 0 0 14px;
+  color: var(--luana-rose-deep);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  line-height: 1.8;
+  text-transform: uppercase;
+}
+
+.luana-side-copy {
+  max-width: 185px;
+  margin: 0;
+  color: var(--luana-ink-soft);
+  font-family: "Lora", Georgia, serif;
+  font-size: 15px;
+  font-style: italic;
+  line-height: 1.7;
+}
+
+.luana-invite {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.luana-invite p:first-of-type {
+  margin: 20px auto 0;
+  max-width: 245px;
+  color: var(--luana-ink-soft);
+  font-family: "Lora", Georgia, serif;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.separator {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: min(100%, 150px);
+  margin: 17px auto 0;
+}
+
+.highlight {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 22px;
+  padding: 10px 16px;
+  border: 1px solid rgba(184, 137, 74, 0.42);
+  border-radius: 999px;
+  color: var(--luana-rose-deep);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.logo img {
+  width: 100%;
+  height: 100%;
+  border: 3px solid rgba(184, 137, 74, 0.62);
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.luana-butterfly {
+  position: absolute;
+  right: 2px;
+  bottom: 67px;
+  display: grid;
+  place-items: center;
+  width: 55px;
+  height: 55px;
+  border: 1px solid var(--luana-gold);
+  border-radius: 50%;
+  background: var(--luana-paper);
+  color: var(--luana-rose);
+  transform: rotate(9deg);
+  box-shadow: 0 7px 18px rgba(112, 58, 77, 0.12);
+}
+
+h1 {
+  margin: 0;
+  color: var(--luana-rose);
+  font-family: "Lora", Georgia, serif;
+  font-size: clamp(54px, 8vw, 86px);
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: -0.07em;
+  line-height: 0.9;
+}
+
+.luana-age {
+  margin: 14px 0 0;
+  color: var(--luana-gold);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(18px, 2.7vw, 27px);
+  font-weight: 600;
+  letter-spacing: 0.35em;
+  line-height: 1;
+  text-indent: 0.35em;
+}
+
+.luana-ink {
+  color: var(--luana-ink);
+}
+
+.luana-rose-deep {
+  color: var(--luana-rose-deep);
+}
+
+.lines {
+  width: 72px;
+  height: 1px;
+  background: var(--luana-gold);
+  opacity: 0.62;
+}
+
+@media (max-width: 570px) {
+  section:first-of-type {
+    padding: 51px 16px 42px;
+  }
+
+  section:first-of-type::before,
+  section:first-of-type::after {
+    width: 48px;
+    height: 48px;
+  }
+
+  .luana-branch {
+    width: 155px;
+    height: 130px;
+  }
+}
+
+@media (max-width: 800px) {
+  section:first-of-type {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    min-height: auto;
+    padding-top: 66px;
+  }
+
+  div {
+    text-align: center;
+  }
+
+  .luana-side-copy {
+    max-width: 280px;
+    margin: 0 auto;
+  }
+
+  .logo {
+    width: min(78vw, 370px);
+  }
+
+  .luana-butterfly {
+    right: 7%;
+    bottom: 8%;
+  }
+}
