@@ -61,6 +61,7 @@ embed,
 object {
   display: block;
   vertical-align: middle;
+  max-width: 100%;
 }
 
 body {
@@ -371,6 +372,7 @@ footer p {
 
   .luana-branch {
     width: 155px;
+    max-width: 100%;
     height: 130px;
   }
 }

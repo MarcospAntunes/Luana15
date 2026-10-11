@@ -3,6 +3,24 @@
    License: none (public domain)
 */
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  overflow-x: clip;
+}
+
+body {
+  width: 100%;
+  max-width: 1096px;
+  margin: 0 auto;
+  padding: 24px 18px 48px;
+}F
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
