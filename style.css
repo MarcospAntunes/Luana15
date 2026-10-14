@@ -237,6 +237,10 @@ section::after {
   line-height: 1.7;
 }
 
+.luana-rose {
+  color: var(--luana-rose) !important;
+}
+
 .separator {
   display: flex;
   align-items: center;
@@ -322,6 +326,163 @@ h1 {
   opacity: 0.62;
 }
 
+section:nth-of-type(2) {
+  position: relative;
+  display: grid;
+  max-width: 880px;
+  margin: 28px auto 0;
+  padding: 42px clamp(20px, 6vw, 78px);
+  border: 1px solid rgba(184, 137, 74, 0.28);
+  background: rgba(255, 249, 244, 0.68);
+  grid-template-columns: 1.08fr 0.92fr;
+  gap: 36px;
+  align-items: center;
+}
+
+section:nth-of-type(2)::before {
+  top: 13px;
+  left: 13px;
+  border-right: 0;
+  border-bottom: 0;
+}
+
+section:nth-of-type(2)::after {
+  right: 13px;
+  bottom: 13px;
+  border-top: 0;
+  border-left: 0;
+}
+
+section:nth-of-type(2) > div:last-of-type {
+  position: relative;
+  padding: 29px 24px 25px;
+  border: 1px solid rgba(184, 137, 74, 0.65);
+  background: rgba(251, 230, 231, 0.72);
+  text-align: center;
+}
+
+section:nth-of-type(2) p.luana-rose {
+  font-size: 11px;
+}
+
+section:nth-of-type(2) #details-title {
+  margin: 0;
+  color: var(--luana-ink);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(25px, 4vw, 36px);
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+section:nth-of-type(2) > div:last-of-type::before {
+  position: absolute;
+  top: 9px;
+  right: 9px;
+  bottom: 9px;
+  left: 9px;
+  border: 1px solid rgba(184, 137, 74, 0.34);
+  content: "";
+  pointer-events: none;
+}
+
+.luana-detail-copy {
+  margin: 16px 0 0;
+  max-width: 430px;
+  color: var(--luana-ink-soft);
+  font-family: "Lora", Georgia, serif;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.luana-info-list {
+  display: grid;
+  gap: 13px;
+  margin-top: 24px;
+}
+
+.luana-info-icon {
+  display: grid;
+  place-items: center;
+  width: 27px;
+  height: 27px;
+  border: 1px solid rgba(184, 137, 74, 0.55);
+  border-radius: 50%;
+  color: var(--luana-gold);
+}
+
+.luana-info-icon svg {
+  width: 13px;
+  height: 13px;
+}
+
+.card-event {
+  display: grid;
+  grid-template-columns: 27px 1fr;
+  gap: 13px;
+  align-items: start;
+}
+
+.card-event > div > p:first-of-type {
+  margin: 0 0 3px;
+  color: var(--luana-rose);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.card-event > div > p:last-of-type {
+  color: var(--luana-ink);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 15px;
+  line-height: 1.4;
+  text-decoration: none;
+}
+
+.luana-info-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border-bottom: 1px solid rgba(187, 100, 123, 0.35);
+  color: var(--luana-ink);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 15px;
+  line-height: 1.4;
+  text-decoration: none;
+  transition:
+    color 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.luana-calendar-number {
+  position: relative;
+  margin: 5px 0 0;
+  color: var(--luana-gold);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 80px;
+  font-weight: 500;
+  line-height: 0.95;
+}
+
+.luana-calendar-month {
+  position: relative;
+  margin: 3px 0 0;
+  color: var(--luana-ink) !important;
+  font-family: "Lora", Georgia, serif;
+  font-size: 13px;
+  font-style: italic;
+}
+
+.luana-calendar-weekday {
+  position: relative;
+  margin: 0;
+  color: var(--luana-rose-deep) !important;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.21em;
+  text-transform: uppercase;
+}
+
 footer {
   position: relative;
   max-width: 650px;
@@ -359,23 +520,76 @@ footer p {
   line-height: 1.7;
 }
 
-@media (max-width: 570px) {
-  section:first-of-type {
-    padding: 51px 16px 42px;
+@keyframes luana-float {
+  0%,
+  100% {
+    transform: translateY(0);
   }
-
-  section:first-of-type::before,
-  section:first-of-type::after {
-    width: 48px;
-    height: 48px;
-  }
-
-  .luana-branch {
-    width: 155px;
-    max-width: 100%;
-    height: 130px;
+  50% {
+    transform: translateY(-10px);
   }
 }
+
+/* ─── Section 3 – ornament bridge ─── */
+
+.section-ornament {
+  position: relative;
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 28px 24px;
+  border: none;
+}
+
+.section-ornament::before,
+.section-ornament::after {
+  display: none;
+}
+
+.luana-branch.bottom-left {
+  position: relative;
+  width: 155px;
+  height: 130px;
+  opacity: 0.72;
+  transform: rotate(10deg);
+}
+
+/* ─── Calendar card ─── */
+
+.calendar-card {
+  position: relative;
+  padding: 29px 24px 25px;
+  border: 1px solid rgba(184, 137, 74, 0.65);
+  border-radius: 6px;
+  background: rgba(251, 230, 231, 0.72);
+  text-align: center;
+}
+
+.calendar-card::before {
+  position: absolute;
+  top: 9px;
+  right: 9px;
+  bottom: 9px;
+  left: 9px;
+  border: 1px solid rgba(184, 137, 74, 0.34);
+  border-radius: 3px;
+  content: "";
+  pointer-events: none;
+}
+
+/* ─── Info link hover ─── */
+
+.luana-info-link:hover {
+  color: var(--luana-rose);
+  border-color: var(--luana-rose);
+}
+
+.luana-info-link svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+/* ─── Responsive – Tablet & below ─── */
 
 @media (max-width: 800px) {
   section:first-of-type {
@@ -401,5 +615,85 @@ footer p {
   .luana-butterfly {
     right: 7%;
     bottom: 8%;
+  }
+
+  section:nth-of-type(2) {
+    grid-template-columns: 1fr;
+    gap: 29px;
+  }
+
+  .calendar-card {
+    max-width: 260px;
+    margin: 0 auto;
+  }
+
+  .card-event {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  .luana-info-icon {
+    display: none;
+  }
+
+  .luana-info-list {
+    gap: 18px;
+  }
+
+  .card-event > div {
+    text-align: center;
+  }
+
+  section:nth-of-type(2)::before,
+  section:nth-of-type(2)::after {
+    display: none;
+  }
+}
+
+/* ─── Responsive – Small phones ─── */
+
+@media (max-width: 570px) {
+  section:first-of-type {
+    padding: 51px 16px 42px;
+  }
+
+  section:first-of-type::before,
+  section:first-of-type::after {
+    width: 48px;
+    height: 48px;
+  }
+
+  .luana-branch {
+    width: 155px;
+    max-width: 100%;
+    height: 130px;
+  }
+
+  section:nth-of-type(2) {
+    margin-top: 17px;
+    padding: 31px 20px;
+  }
+
+  .luana-branch.bottom-left {
+    width: 110px;
+    height: 95px;
+  }
+
+  footer {
+    margin-top: 36px;
+    padding-bottom: 44px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo {
+    animation: none;
+  }
+
+  .luana-button,
+  .luana-info-link,
+  .luana-accordion-trigger svg,
+  .luana-accordion-panel {
+    transition: none;
   }
 }
