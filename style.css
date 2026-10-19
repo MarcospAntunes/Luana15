@@ -111,6 +111,10 @@ header {
   text-transform: uppercase;
 }
 
+header h3 {
+  text-align: center;
+}
+
 .logo {
   position: relative;
   z-index: 2;
@@ -765,6 +769,24 @@ footer p {
   margin-top: 24px;
   border-top: 1px solid rgba(184, 137, 74, 0.4);
   border-bottom: 1px solid rgba(184, 137, 74, 0.4);
+  transition: 1s ease;
+  interpolate-size: allow-keywords;
+}
+
+.gift-accordion::details-content {
+  display: block;
+  block-size: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition:
+    block-size 0.35s ease,
+    opacity 0.25s ease,
+    content-visibility 0.35s allow-discrete;
+}
+
+.gift-accordion[open]::details-content {
+  block-size: auto;
+  opacity: 1;
 }
 
 .gift-accordion summary {
@@ -780,21 +802,30 @@ footer p {
   text-transform: uppercase;
   list-style: none;
   cursor: pointer;
+  transition: 0.3s ease;
 }
+
 
 .gift-accordion summary::-webkit-details-marker {
   display: none;
+  transition: 0.3s ease;
 }
 
 .gift-accordion summary svg {
   width: 18px;
   height: 18px;
   flex-shrink: 0;
-  transition: transform 0.25s ease;
+  transition: 0.3s ease;
 }
 
 .gift-accordion[open] summary svg {
   transform: rotate(180deg);
+  transition: 0.3s ease;
+}
+
+.gift-accordion:not([open]) summary svg {
+  transform: rotate(0deg);
+  transition: 0.3s ease;
 }
 
 .gift-accordion ul {
@@ -804,7 +835,65 @@ footer p {
   font-family: "Lora", Georgia, serif;
   font-size: 14px;
   line-height: 1.8;
-  list-style: disc;
+  transition: 0.3s ease;
+}
+
+.gift-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 400px;
+  list-style: none;
+  padding-left: 0;
+}
+
+.gift-list li {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 10px;
+  width: 150px;
+}
+
+.gift-list li::before {
+  content: "";
+  display: inline-block;
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+  object-fit: cover;
+  background-size: auto 80%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.gift-list .sephora::before {
+  background-image: url("assets/icons/sephora-logo.png");
+}
+
+.gift-list .boticario::before {
+  background-image: url("assets/icons/boticario-logo.png");
+}
+
+.gift-list .farm::before {
+  background-image: url("assets/icons/farm-logo.png");
+}
+
+.gift-list .youcom::before {
+  background-image: url("assets/icons/youcom-logo.png");
+}
+
+.gift-list .natura::before {
+  background-image: url("assets/icons/natura-logo.png");
+}
+
+.gift-list .renner::before {
+  background-image: url("assets/icons/renner-logo.png");
 }
 
 .gift-actions {
@@ -1001,6 +1090,16 @@ footer p {
   .gift {
     margin-top: 17px;
     padding: 31px 20px;
+  }
+
+  .gift-list {
+    width: 100%;
+    gap: 12px;
+  }
+
+  .gift-list li {
+    justify-content: center;
+    width: 100px;
   }
 
   footer {
