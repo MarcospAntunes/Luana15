@@ -98,6 +98,62 @@ h4 {
   font-weight: 500;
 }
 
+.dialog-boas-vindas {
+  width: min(90%, 460px);
+  max-width: 460px;
+  max-height: 90dvh;
+  margin: auto;
+  padding: 0;
+  overflow: auto;
+  border: 1px solid rgba(184, 137, 74, 0.7);
+  background: var(--luana-paper);
+  color: var(--luana-ink);
+  box-shadow: 0 24px 70px rgba(93, 58, 66, 0.3);
+}
+
+.dialog-boas-vindas::backdrop {
+  background: rgba(54, 31, 39, 0.76);
+  backdrop-filter: blur(5px);
+}
+
+.boas-vindas-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 36px 28px;
+  text-align: center;
+}
+
+.boas-vindas-logo {
+  width: 110px;
+  height: 110px;
+  margin-bottom: 24px;
+  border: 2px solid var(--luana-gold);
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.boas-vindas-content h2 {
+  margin: 0 0 16px;
+  color: var(--luana-rose);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(27px, 6vw, 36px);
+  font-weight: 500;
+}
+
+.boas-vindas-content > p:not(.luana-kicker) {
+  margin: 0 0 26px;
+  color: var(--luana-ink-soft);
+  font-family: "Lora", Georgia, serif;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.boas-vindas-content .btn-rsvp {
+  white-space: normal;
+  max-width: 100%;
+}
+
 header {
   display: flex;
   align-items: center;
@@ -1058,6 +1114,17 @@ footer p {
 }
 
 /* ─── Responsive – Small phones ─── */
+
+@media (max-width: 480px) {
+  .boas-vindas-content {
+    padding: 28px 20px;
+  }
+
+  .boas-vindas-logo {
+    width: 90px;
+    height: 90px;
+  }
+}
 
 @media (max-width: 570px) {
   section:first-of-type {

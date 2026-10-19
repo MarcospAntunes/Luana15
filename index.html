@@ -17,6 +17,33 @@
     <title>Convite Luana - 15 Anos</title>
   </head>
   <body>
+    <dialog id="dialog-boas-vindas" class="dialog-boas-vindas" aria-labelledby="boas-vindas-title">
+      <div class="boas-vindas-content">
+        <img
+          src="./assets/images/logo.png"
+          alt="Logo do convite de Luana"
+          class="boas-vindas-logo"
+        />
+
+        <p class="uppercase luana-rose-deep luana-kicker">
+          Um convite especial
+        </p>
+
+        <h2 id="boas-vindas-title">
+          Você é nosso convidado!
+        </h2>
+
+        <p>
+          Prepare-se para conhecer cada detalhe desse momento
+          tão especial. Será uma alegria ter você conosco
+          na comemoração dos 15 anos da Luana.
+        </p>
+
+        <button type="button" id="fechar-boas-vindas" class="btn-rsvp">
+          Ver convite
+        </button>
+      </div>
+    </dialog>
     <header>
       <div class="lines"></div>
       <h3 class="uppercase">Um convite para guardar</h3>
@@ -823,6 +850,13 @@
       <br />
       <p class="luana-rose-deep">Luana · 15 anos · 21.11.2026</p>
     </footer>
+    <audio id="musicaFundo" loop preload="none">
+      <source
+        src="./assets/audios/playback.m4a"
+        type="audio/mp4"
+      />
+      Seu navegador não suporta o elemento de áudio.
+    </audio>
     <script src="script.js"></script>
   </body>
 </html>

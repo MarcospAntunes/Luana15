@@ -1,5 +1,33 @@
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 const EASE_OUT = "cubic-bezier(0.22, 1, 0.36, 1)";
+let trilhaFundo = document.getElementById('musicaFundo');
+if (trilhaFundo && trilhaFundo.tagName !== 'AUDIO') {
+  trilhaFundo = trilhaFundo.querySelector('audio') || document.querySelector('audio');
+}
+
+const modalBoasVindas = document.getElementById("dialog-boas-vindas");
+const botaoFecharBoasVindas = document.getElementById("fechar-boas-vindas");
+
+function ligarMusica() {
+  if (!trilhaFundo) return;
+  
+  trilhaFundo.volume = 0.6;
+  trilhaFundo.play()
+    .then(() => {
+      console.log("Música iniciada com sucesso!");
+      removerGatilhos();
+    })
+    .catch((error) => {
+      // Se ainda assim o navegador chiar, ele tenta no próximo clique
+      console.log("Aguardando clique definitivo do usuário.");
+    });
+}
+
+function removerGatilhos() {
+  document.removeEventListener('click', ligarMusica);
+  document.removeEventListener('touchend', ligarMusica); // touchend funciona melhor que touchstart no mobile
+  document.removeEventListener('keydown', ligarMusica);
+}
 
 // Com "reduzir movimento" ligado no sistema, usa só um fade suave (sem deslizar/escalar)
 function frames(type) {
@@ -56,8 +84,16 @@ function closeDialog(dialog) {
 
   const finish = () => {
     delete dialog.dataset.closing;
-    dialog.getAnimations({ subtree: true }).forEach((a) => a.cancel());
+
+    dialog.getAnimations({ subtree: true })
+      .forEach((animation) => animation.cancel());
+
     dialog.close();
+
+    // A música começa somente depois de fechar o modal inicial.
+    if (dialog.id === "dialog-boas-vindas") {
+      ligarMusica();
+    }
   };
 
   if (box) box.finished.then(finish, finish);
@@ -91,3 +127,24 @@ document.querySelectorAll("dialog").forEach((dialog) => {
     });
   });
 });
+
+if (modalBoasVindas && botaoFecharBoasVindas) {
+  // Impede que o modal inicial seja fechado por outros meios.
+  modalBoasVindas.addEventListener("cancel", (event) => {
+    event.preventDefault();
+    closeDialog(modalBoasVindas);
+  });
+
+  modalBoasVindas.addEventListener("click", (event) => {
+    if (event.target === modalBoasVindas) {
+      closeDialog(modalBoasVindas);
+    }
+  });
+
+  botaoFecharBoasVindas.addEventListener("click", () => {
+    closeDialog(modalBoasVindas);
+  });
+
+  // O convite já abre com o modal visível.
+  openDialog(modalBoasVindas);
+}
